@@ -20,6 +20,11 @@ body {
   font-family: "Karla", sans-serif;
   background-color: var(--teal-100);
 }
-
+main {
+  display: grid;
+  border-radius: 0.5rem;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0 1rem 2rem hsla(179, 82%, 23%, 0.2);
+}
 .attribution { font-size: 0.6875rem; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }

@@ -4,27 +4,105 @@
   box-sizing: border-box;
 }
 :root {
+  --body-size: 1rem;
+  --white: hsl(0, 0%, 100%);
   --teal-100: hsl(204, 43%, 93%);
   --gray-500: hsl(218, 22%, 67%);
   --teal-500: hsl(179, 62%, 43%);
+  --green-300: hsl(61, 93%, 84%);
   --green-400: hsl(71, 73%, 54%);
+  --font: "Karla", sans-serif;
 }
 body {
   display: flex;
-  padding: 0.5rem;
-  font-size: 1rem;
   min-height: 100vh;
   align-items: center;
+  color: var(--gray-500);
   flex-direction: column;
+  font-family: var(--font);
+  font-size: var(--body-size);
   justify-content: space-between;
-  font-family: "Karla", sans-serif;
   background-color: var(--teal-100);
 }
 main {
   display: grid;
-  border-radius: 0.5rem;
-  background-color: hsl(0, 0%, 100%);
+  overflow: clip;
+  width: min(40rem, 90%);
+  background-color: var(--white);
+  border-radius: calc(var(--body-size) / 4);
   box-shadow: 0 1rem 2rem hsla(179, 82%, 23%, 0.2);
+  margin: clamp(2.5rem, calc(var(--body-size) * 3 + 10vw), 10rem);
+}
+h1 {
+  color: var(--teal-500);
+  margin-block-end: 1.5rem;
+  font-size: clamp(1.125rem, calc(1vw + 1rem), 1.5rem);
+}
+h2 {
+  margin-block-end: 1rem;
+  color: var(--green-400);
+  font-size: clamp(0.875rem, calc(1vw + 0.75rem), 1.125rem);
+}
+h3 {
+  margin-block-end: 1.5rem;
+}
+.intro {
+  padding: clamp(1.25rem, calc(var(--body-size) * 1.5 + 1vw), 3rem);
+}
+.intro p {
+  line-height: 1.5;
+  font-size: clamp(0.75rem, calc(1vw + 0.65rem), 1rem);
+}
+.susbcription, .reason {
+  color: var(--white);
+  padding: clamp(1.25rem, calc(var(--body-size) * 1.5 + 1vw), 3rem);
+  background-color: var(--teal-500);
+}
+.susbcription {
+  background-color: hsl(179, 90%, 35%);
+
+  & .plan {
+    gap: 1rem;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    margin-block-end: 0.5rem;
+    font-size: calc(var(--body-size) * 2);
+    & span {
+      opacity: 0.75;
+      font-weight: 100;
+      font-size: var(--body-size);
+    }
+  }
+
+  & .btn {
+    width: stretch;
+    line-height: 1.5;
+    font-weight: 700;
+    color: var(--green-300);
+    margin-block-start: 2rem;
+    font-family: var(--font);
+    border-color: transparent;
+    font-size: var(--body-size);
+    padding: 0.75rem var(--body-size);
+    background-color: var(--green-400);
+    border-radius: calc(var(--body-size) / 4);
+    box-shadow: 0 0.5rem 1rem -0.5rem hsla(180, 88%, 10%, 0.5);
+  }
+}
+ul {
+  list-style: none;
+  line-height: 1.5;
+  font-weight: lighter;
+  font-size: clamp(0.75rem, calc(1vw + 0.65rem), 0.875rem);
 }
 .attribution { font-size: 0.6875rem; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
+@media (min-width: 48rem) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .intro {
+    grid-column: span 2;
+  }
+}

@@ -42,7 +42,7 @@ Users should be able to:
 
 ### What I learned
 
-To see how you can add code snippets, see below:
+Check my code snippets below:
 
 ```html
 <main>
